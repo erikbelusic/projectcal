@@ -57546,11 +57546,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['project'],
     data: function data() {
         return {
+            showHistory: false,
             statuses: {
                 "In Progress": 'success',
                 "New": 'warning',
@@ -57562,6 +57570,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+    computed: {
+        historyHeight: function historyHeight() {
+            return this.project.history.length * 42 + 'px';
+        }
+    },
     watch: {
         'project.start_date': function projectStart_date() {
             this.updateProject();
@@ -57588,9 +57601,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('tr', {
     class: _vm.statuses[_vm.project.status]
-  }, [_c('td', _vm._l((_vm.project.history), function(item) {
-    return _c('li', [_vm._v(_vm._s(item.key) + " was changed from " + _vm._s(item.old_value) + " to " + _vm._s(item.new_value))])
-  })), _vm._v(" "), _c('th', [_c('input', {
+  }, [_c('th', [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -57683,7 +57694,27 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.project.next_action = $event.target.value
       }
     }
-  })])])
+  })]), _vm._v(" "), _c('td', [_c('a', {
+    staticClass: "btn btn-info",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.showHistory = !_vm.showHistory
+      }
+    }
+  }, [_vm._v(_vm._s((_vm.showHistory) ? "Hide History" : "Show History"))]), _vm._v(" "), (_vm.showHistory) ? _c('div', {
+    style: ({
+      height: _vm.historyHeight
+    })
+  }, [_c('div', {
+    staticClass: "history-row"
+  }, [_c('ul', {
+    staticClass: "list-group"
+  }, _vm._l((_vm.project.history), function(item) {
+    return _c('li', {
+      staticClass: "list-group-item"
+    }, [_vm._v(_vm._s(item.key) + " was changed from " + _vm._s(item.old_value) + " to " + _vm._s(item.new_value))])
+  }))])]) : _vm._e()])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

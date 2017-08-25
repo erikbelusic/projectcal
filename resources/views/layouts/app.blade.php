@@ -17,6 +17,15 @@
         .vdp-datepicker .form-control {
             background-color:white;
         }
+        .history-row {
+            position:absolute;
+            left:0;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        table.table {
+            position: relative;
+        }
     </style>
 </head>
 <body>

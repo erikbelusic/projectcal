@@ -1,9 +1,6 @@
 <template>
 
     <tr :class="statuses[project.status]">
-        <td>
-            <li v-for="item in project.history">{{ item.key }} was changed from {{ item.old_value }} to {{ item.new_value }}</li>
-        </td>
         <th><input @blur="updateProject" class="form-control" v-model="project.name"></th>
         <td><project-status-dropdown @change="updateProject" v-model="project.status"></project-status-dropdown></td>
         <td>
@@ -14,6 +11,16 @@
         </td>
         <th><input @blur="updateProject" class="form-control" v-model="project.responsible_party"></th>
         <th><input @blur="updateProject" class="form-control" v-model="project.next_action"></th>
+        <td>
+            <a class="btn btn-info" @click.prevent="showHistory = !showHistory">{{ (showHistory) ? "Hide History" : "Show History" }}</a>
+            <div v-if="showHistory" :style="{height: historyHeight}">
+                <div class="history-row">
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="item in project.history">{{ item.key }} was changed from {{ item.old_value }} to {{ item.new_value }}</li>
+                    </ul>
+                </div>
+            </div>
+        </td>
     </tr>
 
 </template>
@@ -23,6 +30,7 @@
         props: ['project'],
         data() {
             return {
+                showHistory: false,
                 statuses: {
                     "In Progress": 'success',
                     "New": 'warning',
@@ -31,6 +39,11 @@
                     "Completed": 'success',
                     "Abandoned": 'active',
                 }
+            }
+        },
+        computed: {
+            historyHeight: function() {
+                return (this.project.history.length * 42) + 'px';
             }
         },
         watch: {
