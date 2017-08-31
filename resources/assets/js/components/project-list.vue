@@ -41,7 +41,15 @@
                         return _.orderBy(this.projects, [project => moment(project.end_date, 'MM/DD/YYYY')]);
                         break;
                     case 'status':
-                        return _.orderBy(this.projects, 'status');
+                        const statusOrder = {
+                            "In Progress": 1,
+                            "Blocked": 2,
+                            "New": 3,
+                            "On Hold": 4,
+                            "Completed": 10,
+                            "Abandoned": 11,
+                        };
+                        return _.orderBy(this.projects, [project => statusOrder[project.status]]);
                         break;
                 }
             }

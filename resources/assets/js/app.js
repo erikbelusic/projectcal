@@ -29,7 +29,7 @@ const app = new Vue({
     el: '#app',
     data: {
         projectType: 'active',
-        projectOrder: 'date',
+        projectOrder: 'status',
         showForm: false,
         projects: projects
     },

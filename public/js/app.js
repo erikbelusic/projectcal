@@ -1896,7 +1896,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(167)("./" + name);
+            __webpack_require__(152)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -26717,7 +26717,7 @@ module.exports = __webpack_require__(173);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_bootstrap_datetimepicker__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_bootstrap_datetimepicker__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_bootstrap_datetimepicker___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_bootstrap_datetimepicker__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_eonasdan_bootstrap_datetimepicker_build_css_bootstrap_datetimepicker_css__ = __webpack_require__(168);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_eonasdan_bootstrap_datetimepicker_build_css_bootstrap_datetimepicker_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_eonasdan_bootstrap_datetimepicker_build_css_bootstrap_datetimepicker_css__);
@@ -26729,7 +26729,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __webpack_require__(129);
 
-window.Vue = __webpack_require__(152);
+window.Vue = __webpack_require__(153);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -26737,10 +26737,10 @@ window.Vue = __webpack_require__(152);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-window.Vue.component('project', __webpack_require__(153));
-window.Vue.component('project-status-dropdown', __webpack_require__(156));
-window.Vue.component('project-list', __webpack_require__(159));
-window.Vue.component('new-project-form', __webpack_require__(162));
+window.Vue.component('project', __webpack_require__(154));
+window.Vue.component('project-status-dropdown', __webpack_require__(157));
+window.Vue.component('project-list', __webpack_require__(160));
+window.Vue.component('new-project-form', __webpack_require__(163));
 
 
 
@@ -26752,7 +26752,7 @@ var app = new Vue({
     el: '#app',
     data: {
         projectType: 'active',
-        projectOrder: 'date',
+        projectOrder: 'status',
         showForm: false,
         projects: projects
     },
@@ -47392,6 +47392,258 @@ module.exports = function spread(callback) {
 /* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var map = {
+	"./af": 12,
+	"./af.js": 12,
+	"./ar": 13,
+	"./ar-dz": 14,
+	"./ar-dz.js": 14,
+	"./ar-kw": 15,
+	"./ar-kw.js": 15,
+	"./ar-ly": 16,
+	"./ar-ly.js": 16,
+	"./ar-ma": 17,
+	"./ar-ma.js": 17,
+	"./ar-sa": 18,
+	"./ar-sa.js": 18,
+	"./ar-tn": 19,
+	"./ar-tn.js": 19,
+	"./ar.js": 13,
+	"./az": 20,
+	"./az.js": 20,
+	"./be": 21,
+	"./be.js": 21,
+	"./bg": 22,
+	"./bg.js": 22,
+	"./bn": 23,
+	"./bn.js": 23,
+	"./bo": 24,
+	"./bo.js": 24,
+	"./br": 25,
+	"./br.js": 25,
+	"./bs": 26,
+	"./bs.js": 26,
+	"./ca": 27,
+	"./ca.js": 27,
+	"./cs": 28,
+	"./cs.js": 28,
+	"./cv": 29,
+	"./cv.js": 29,
+	"./cy": 30,
+	"./cy.js": 30,
+	"./da": 31,
+	"./da.js": 31,
+	"./de": 32,
+	"./de-at": 33,
+	"./de-at.js": 33,
+	"./de-ch": 34,
+	"./de-ch.js": 34,
+	"./de.js": 32,
+	"./dv": 35,
+	"./dv.js": 35,
+	"./el": 36,
+	"./el.js": 36,
+	"./en-au": 37,
+	"./en-au.js": 37,
+	"./en-ca": 38,
+	"./en-ca.js": 38,
+	"./en-gb": 39,
+	"./en-gb.js": 39,
+	"./en-ie": 40,
+	"./en-ie.js": 40,
+	"./en-nz": 41,
+	"./en-nz.js": 41,
+	"./eo": 42,
+	"./eo.js": 42,
+	"./es": 43,
+	"./es-do": 44,
+	"./es-do.js": 44,
+	"./es.js": 43,
+	"./et": 45,
+	"./et.js": 45,
+	"./eu": 46,
+	"./eu.js": 46,
+	"./fa": 47,
+	"./fa.js": 47,
+	"./fi": 48,
+	"./fi.js": 48,
+	"./fo": 49,
+	"./fo.js": 49,
+	"./fr": 50,
+	"./fr-ca": 51,
+	"./fr-ca.js": 51,
+	"./fr-ch": 52,
+	"./fr-ch.js": 52,
+	"./fr.js": 50,
+	"./fy": 53,
+	"./fy.js": 53,
+	"./gd": 54,
+	"./gd.js": 54,
+	"./gl": 55,
+	"./gl.js": 55,
+	"./gom-latn": 56,
+	"./gom-latn.js": 56,
+	"./he": 57,
+	"./he.js": 57,
+	"./hi": 58,
+	"./hi.js": 58,
+	"./hr": 59,
+	"./hr.js": 59,
+	"./hu": 60,
+	"./hu.js": 60,
+	"./hy-am": 61,
+	"./hy-am.js": 61,
+	"./id": 62,
+	"./id.js": 62,
+	"./is": 63,
+	"./is.js": 63,
+	"./it": 64,
+	"./it.js": 64,
+	"./ja": 65,
+	"./ja.js": 65,
+	"./jv": 66,
+	"./jv.js": 66,
+	"./ka": 67,
+	"./ka.js": 67,
+	"./kk": 68,
+	"./kk.js": 68,
+	"./km": 69,
+	"./km.js": 69,
+	"./kn": 70,
+	"./kn.js": 70,
+	"./ko": 71,
+	"./ko.js": 71,
+	"./ky": 72,
+	"./ky.js": 72,
+	"./lb": 73,
+	"./lb.js": 73,
+	"./lo": 74,
+	"./lo.js": 74,
+	"./lt": 75,
+	"./lt.js": 75,
+	"./lv": 76,
+	"./lv.js": 76,
+	"./me": 77,
+	"./me.js": 77,
+	"./mi": 78,
+	"./mi.js": 78,
+	"./mk": 79,
+	"./mk.js": 79,
+	"./ml": 80,
+	"./ml.js": 80,
+	"./mr": 81,
+	"./mr.js": 81,
+	"./ms": 82,
+	"./ms-my": 83,
+	"./ms-my.js": 83,
+	"./ms.js": 82,
+	"./my": 84,
+	"./my.js": 84,
+	"./nb": 85,
+	"./nb.js": 85,
+	"./ne": 86,
+	"./ne.js": 86,
+	"./nl": 87,
+	"./nl-be": 88,
+	"./nl-be.js": 88,
+	"./nl.js": 87,
+	"./nn": 89,
+	"./nn.js": 89,
+	"./pa-in": 90,
+	"./pa-in.js": 90,
+	"./pl": 91,
+	"./pl.js": 91,
+	"./pt": 92,
+	"./pt-br": 93,
+	"./pt-br.js": 93,
+	"./pt.js": 92,
+	"./ro": 94,
+	"./ro.js": 94,
+	"./ru": 95,
+	"./ru.js": 95,
+	"./sd": 96,
+	"./sd.js": 96,
+	"./se": 97,
+	"./se.js": 97,
+	"./si": 98,
+	"./si.js": 98,
+	"./sk": 99,
+	"./sk.js": 99,
+	"./sl": 100,
+	"./sl.js": 100,
+	"./sq": 101,
+	"./sq.js": 101,
+	"./sr": 102,
+	"./sr-cyrl": 103,
+	"./sr-cyrl.js": 103,
+	"./sr.js": 102,
+	"./ss": 104,
+	"./ss.js": 104,
+	"./sv": 105,
+	"./sv.js": 105,
+	"./sw": 106,
+	"./sw.js": 106,
+	"./ta": 107,
+	"./ta.js": 107,
+	"./te": 108,
+	"./te.js": 108,
+	"./tet": 109,
+	"./tet.js": 109,
+	"./th": 110,
+	"./th.js": 110,
+	"./tl-ph": 111,
+	"./tl-ph.js": 111,
+	"./tlh": 112,
+	"./tlh.js": 112,
+	"./tr": 113,
+	"./tr.js": 113,
+	"./tzl": 114,
+	"./tzl.js": 114,
+	"./tzm": 115,
+	"./tzm-latn": 116,
+	"./tzm-latn.js": 116,
+	"./tzm.js": 115,
+	"./uk": 117,
+	"./uk.js": 117,
+	"./ur": 118,
+	"./ur.js": 118,
+	"./uz": 119,
+	"./uz-latn": 120,
+	"./uz-latn.js": 120,
+	"./uz.js": 119,
+	"./vi": 121,
+	"./vi.js": 121,
+	"./x-pseudo": 122,
+	"./x-pseudo.js": 122,
+	"./yo": 123,
+	"./yo.js": 123,
+	"./zh-cn": 124,
+	"./zh-cn.js": 124,
+	"./zh-hk": 125,
+	"./zh-hk.js": 125,
+	"./zh-tw": 126,
+	"./zh-tw.js": 126
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 152;
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {/*!
  * Vue.js v2.4.2
@@ -57484,15 +57736,15 @@ module.exports = Vue$3;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(154),
-  /* template */
   __webpack_require__(155),
+  /* template */
+  __webpack_require__(156),
   /* styles */
   null,
   /* scopeId */
@@ -57524,7 +57776,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57610,7 +57862,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -57772,15 +58024,15 @@ if (false) {
 }
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(157),
-  /* template */
   __webpack_require__(158),
+  /* template */
+  __webpack_require__(159),
   /* styles */
   null,
   /* scopeId */
@@ -57812,7 +58064,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57840,7 +58092,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -57892,15 +58144,15 @@ if (false) {
 }
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(160),
-  /* template */
   __webpack_require__(161),
+  /* template */
+  __webpack_require__(162),
   /* styles */
   null,
   /* scopeId */
@@ -57932,7 +58184,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -57984,7 +58236,17 @@ var moment = window.moment;
                     }]);
                     break;
                 case 'status':
-                    return _.orderBy(this.projects, 'status');
+                    var statusOrder = {
+                        "In Progress": 1,
+                        "Blocked": 2,
+                        "New": 3,
+                        "On Hold": 4,
+                        "Completed": 10,
+                        "Abandoned": 11
+                    };
+                    return _.orderBy(this.projects, [function (project) {
+                        return statusOrder[project.status];
+                    }]);
                     break;
             }
         }
@@ -57997,7 +58259,7 @@ var moment = window.moment;
 });
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -58030,15 +58292,15 @@ if (false) {
 }
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(2)(
   /* script */
-  __webpack_require__(163),
-  /* template */
   __webpack_require__(164),
+  /* template */
+  __webpack_require__(165),
   /* styles */
   null,
   /* scopeId */
@@ -58070,7 +58332,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58152,7 +58414,7 @@ function getBlankForm() {
 });
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -58279,13 +58541,13 @@ if (false) {
 }
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(e,t){ true?module.exports=t(__webpack_require__(166),__webpack_require__(3),__webpack_require__(0)):"function"==typeof define&&define.amd?define("VueBootstrapDatetimePicker",["eonasdan-bootstrap-datetimepicker","jquery","moment"],t):"object"==typeof exports?exports.VueBootstrapDatetimePicker=t(require("eonasdan-bootstrap-datetimepicker"),require("jquery"),require("moment")):e.VueBootstrapDatetimePicker=t(e["eonasdan-bootstrap-datetimepicker"],e.jquery,e.moment)}(this,function(e,t,n){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=2)}([function(e,t,n){"use strict";var r=n(1),o=n(4),i=n(3),a=i(r.a,o.a,null,null,null);t.a=a.exports},function(e,t,n){"use strict";var r=n(5),o=(n.n(r),window.jQuery||n(6)),i=window.moment||n(7);t.a={props:{value:{default:null,required:!0,validator:function(e){return null===e||e instanceof Date||"string"==typeof e||e instanceof String||e instanceof i}},config:{type:Object,default:function(){return{}}},placeholder:{type:String,default:""},inputClass:{type:[String,Object],default:""},name:{type:String,default:"datetime"},required:{type:Boolean,default:!1},readOnly:{type:Boolean,default:!1},disabled:{type:Boolean,default:!1},wrap:{type:Boolean,default:!1},id:{type:String}},data:function(){return{dp:null}},mounted:function(){if(!this.dp){var e=this.wrap?this.$el.parentNode:this.$el,t=o(e);t.datetimepicker(this.config),this.dp=t.data("DateTimePicker"),this.dp.date(this.value),t.on("dp.change",this.onChange)}},beforeDestroy:function(){this.dp&&(this.dp.destroy(),this.dp=null)},watch:{value:function(e){this.dp&&this.dp.date(e||null)},config:function(e){this.dp&&this.dp.options(Object.assign(this.dp.options(),e))}},methods:{onChange:function(e){this.$emit("input",e.date||null)}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),n.d(t,"DatetimePickerPlugin",function(){return o});var r=n(0);n.d(t,"component",function(){return r.a});var o={install:function(e,t){var n="date-picker";"string"==typeof t&&(n=t),e.component(n,r.a)}};r.a.install=o.install,t.default=r.a},function(e,t){e.exports=function(e,t,n,r,o){var i,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(i=e,a=e.default);var s="function"==typeof a?a.options:a;t&&(s.render=t.render,s.staticRenderFns=t.staticRenderFns),r&&(s._scopeId=r);var d;if(o?(d=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),n&&n.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(o)},s._ssrRegister=d):n&&(d=n),d){var c=s.functional,p=c?s.render:s.beforeCreate;c?s.render=function(e,t){return d.call(t),p(e,t)}:s.beforeCreate=p?[].concat(p,d):[d]}return{esModule:i,exports:a,options:s}}},function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement;return(e._self._c||t)("input",{staticClass:"form-control input",class:e.inputClass,attrs:{type:"text",id:e.id,name:e.name,placeholder:e.placeholder,required:e.required,readOnly:e.readOnly,disabled:e.disabled}})},o=[],i={render:r,staticRenderFns:o};t.a=i},function(t,n){t.exports=e},function(e,n){e.exports=t},function(e,t){e.exports=n}])});
+!function(e,t){ true?module.exports=t(__webpack_require__(167),__webpack_require__(3),__webpack_require__(0)):"function"==typeof define&&define.amd?define("VueBootstrapDatetimePicker",["eonasdan-bootstrap-datetimepicker","jquery","moment"],t):"object"==typeof exports?exports.VueBootstrapDatetimePicker=t(require("eonasdan-bootstrap-datetimepicker"),require("jquery"),require("moment")):e.VueBootstrapDatetimePicker=t(e["eonasdan-bootstrap-datetimepicker"],e.jquery,e.moment)}(this,function(e,t,n){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=2)}([function(e,t,n){"use strict";var r=n(1),o=n(4),i=n(3),a=i(r.a,o.a,null,null,null);t.a=a.exports},function(e,t,n){"use strict";var r=n(5),o=(n.n(r),window.jQuery||n(6)),i=window.moment||n(7);t.a={props:{value:{default:null,required:!0,validator:function(e){return null===e||e instanceof Date||"string"==typeof e||e instanceof String||e instanceof i}},config:{type:Object,default:function(){return{}}},placeholder:{type:String,default:""},inputClass:{type:[String,Object],default:""},name:{type:String,default:"datetime"},required:{type:Boolean,default:!1},readOnly:{type:Boolean,default:!1},disabled:{type:Boolean,default:!1},wrap:{type:Boolean,default:!1},id:{type:String}},data:function(){return{dp:null}},mounted:function(){if(!this.dp){var e=this.wrap?this.$el.parentNode:this.$el,t=o(e);t.datetimepicker(this.config),this.dp=t.data("DateTimePicker"),this.dp.date(this.value),t.on("dp.change",this.onChange)}},beforeDestroy:function(){this.dp&&(this.dp.destroy(),this.dp=null)},watch:{value:function(e){this.dp&&this.dp.date(e||null)},config:function(e){this.dp&&this.dp.options(Object.assign(this.dp.options(),e))}},methods:{onChange:function(e){this.$emit("input",e.date||null)}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),n.d(t,"DatetimePickerPlugin",function(){return o});var r=n(0);n.d(t,"component",function(){return r.a});var o={install:function(e,t){var n="date-picker";"string"==typeof t&&(n=t),e.component(n,r.a)}};r.a.install=o.install,t.default=r.a},function(e,t){e.exports=function(e,t,n,r,o){var i,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(i=e,a=e.default);var s="function"==typeof a?a.options:a;t&&(s.render=t.render,s.staticRenderFns=t.staticRenderFns),r&&(s._scopeId=r);var d;if(o?(d=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),n&&n.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(o)},s._ssrRegister=d):n&&(d=n),d){var c=s.functional,p=c?s.render:s.beforeCreate;c?s.render=function(e,t){return d.call(t),p(e,t)}:s.beforeCreate=p?[].concat(p,d):[d]}return{esModule:i,exports:a,options:s}}},function(e,t,n){"use strict";var r=function(){var e=this,t=e.$createElement;return(e._self._c||t)("input",{staticClass:"form-control input",class:e.inputClass,attrs:{type:"text",id:e.id,name:e.name,placeholder:e.placeholder,required:e.required,readOnly:e.readOnly,disabled:e.disabled}})},o=[],i={render:r,staticRenderFns:o};t.a=i},function(t,n){t.exports=e},function(e,n){e.exports=t},function(e,t){e.exports=n}])});
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! version : 4.17.47
@@ -60928,258 +61190,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return $.fn.datetimepicker;
 }));
 
-
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./af": 12,
-	"./af.js": 12,
-	"./ar": 13,
-	"./ar-dz": 14,
-	"./ar-dz.js": 14,
-	"./ar-kw": 15,
-	"./ar-kw.js": 15,
-	"./ar-ly": 16,
-	"./ar-ly.js": 16,
-	"./ar-ma": 17,
-	"./ar-ma.js": 17,
-	"./ar-sa": 18,
-	"./ar-sa.js": 18,
-	"./ar-tn": 19,
-	"./ar-tn.js": 19,
-	"./ar.js": 13,
-	"./az": 20,
-	"./az.js": 20,
-	"./be": 21,
-	"./be.js": 21,
-	"./bg": 22,
-	"./bg.js": 22,
-	"./bn": 23,
-	"./bn.js": 23,
-	"./bo": 24,
-	"./bo.js": 24,
-	"./br": 25,
-	"./br.js": 25,
-	"./bs": 26,
-	"./bs.js": 26,
-	"./ca": 27,
-	"./ca.js": 27,
-	"./cs": 28,
-	"./cs.js": 28,
-	"./cv": 29,
-	"./cv.js": 29,
-	"./cy": 30,
-	"./cy.js": 30,
-	"./da": 31,
-	"./da.js": 31,
-	"./de": 32,
-	"./de-at": 33,
-	"./de-at.js": 33,
-	"./de-ch": 34,
-	"./de-ch.js": 34,
-	"./de.js": 32,
-	"./dv": 35,
-	"./dv.js": 35,
-	"./el": 36,
-	"./el.js": 36,
-	"./en-au": 37,
-	"./en-au.js": 37,
-	"./en-ca": 38,
-	"./en-ca.js": 38,
-	"./en-gb": 39,
-	"./en-gb.js": 39,
-	"./en-ie": 40,
-	"./en-ie.js": 40,
-	"./en-nz": 41,
-	"./en-nz.js": 41,
-	"./eo": 42,
-	"./eo.js": 42,
-	"./es": 43,
-	"./es-do": 44,
-	"./es-do.js": 44,
-	"./es.js": 43,
-	"./et": 45,
-	"./et.js": 45,
-	"./eu": 46,
-	"./eu.js": 46,
-	"./fa": 47,
-	"./fa.js": 47,
-	"./fi": 48,
-	"./fi.js": 48,
-	"./fo": 49,
-	"./fo.js": 49,
-	"./fr": 50,
-	"./fr-ca": 51,
-	"./fr-ca.js": 51,
-	"./fr-ch": 52,
-	"./fr-ch.js": 52,
-	"./fr.js": 50,
-	"./fy": 53,
-	"./fy.js": 53,
-	"./gd": 54,
-	"./gd.js": 54,
-	"./gl": 55,
-	"./gl.js": 55,
-	"./gom-latn": 56,
-	"./gom-latn.js": 56,
-	"./he": 57,
-	"./he.js": 57,
-	"./hi": 58,
-	"./hi.js": 58,
-	"./hr": 59,
-	"./hr.js": 59,
-	"./hu": 60,
-	"./hu.js": 60,
-	"./hy-am": 61,
-	"./hy-am.js": 61,
-	"./id": 62,
-	"./id.js": 62,
-	"./is": 63,
-	"./is.js": 63,
-	"./it": 64,
-	"./it.js": 64,
-	"./ja": 65,
-	"./ja.js": 65,
-	"./jv": 66,
-	"./jv.js": 66,
-	"./ka": 67,
-	"./ka.js": 67,
-	"./kk": 68,
-	"./kk.js": 68,
-	"./km": 69,
-	"./km.js": 69,
-	"./kn": 70,
-	"./kn.js": 70,
-	"./ko": 71,
-	"./ko.js": 71,
-	"./ky": 72,
-	"./ky.js": 72,
-	"./lb": 73,
-	"./lb.js": 73,
-	"./lo": 74,
-	"./lo.js": 74,
-	"./lt": 75,
-	"./lt.js": 75,
-	"./lv": 76,
-	"./lv.js": 76,
-	"./me": 77,
-	"./me.js": 77,
-	"./mi": 78,
-	"./mi.js": 78,
-	"./mk": 79,
-	"./mk.js": 79,
-	"./ml": 80,
-	"./ml.js": 80,
-	"./mr": 81,
-	"./mr.js": 81,
-	"./ms": 82,
-	"./ms-my": 83,
-	"./ms-my.js": 83,
-	"./ms.js": 82,
-	"./my": 84,
-	"./my.js": 84,
-	"./nb": 85,
-	"./nb.js": 85,
-	"./ne": 86,
-	"./ne.js": 86,
-	"./nl": 87,
-	"./nl-be": 88,
-	"./nl-be.js": 88,
-	"./nl.js": 87,
-	"./nn": 89,
-	"./nn.js": 89,
-	"./pa-in": 90,
-	"./pa-in.js": 90,
-	"./pl": 91,
-	"./pl.js": 91,
-	"./pt": 92,
-	"./pt-br": 93,
-	"./pt-br.js": 93,
-	"./pt.js": 92,
-	"./ro": 94,
-	"./ro.js": 94,
-	"./ru": 95,
-	"./ru.js": 95,
-	"./sd": 96,
-	"./sd.js": 96,
-	"./se": 97,
-	"./se.js": 97,
-	"./si": 98,
-	"./si.js": 98,
-	"./sk": 99,
-	"./sk.js": 99,
-	"./sl": 100,
-	"./sl.js": 100,
-	"./sq": 101,
-	"./sq.js": 101,
-	"./sr": 102,
-	"./sr-cyrl": 103,
-	"./sr-cyrl.js": 103,
-	"./sr.js": 102,
-	"./ss": 104,
-	"./ss.js": 104,
-	"./sv": 105,
-	"./sv.js": 105,
-	"./sw": 106,
-	"./sw.js": 106,
-	"./ta": 107,
-	"./ta.js": 107,
-	"./te": 108,
-	"./te.js": 108,
-	"./tet": 109,
-	"./tet.js": 109,
-	"./th": 110,
-	"./th.js": 110,
-	"./tl-ph": 111,
-	"./tl-ph.js": 111,
-	"./tlh": 112,
-	"./tlh.js": 112,
-	"./tr": 113,
-	"./tr.js": 113,
-	"./tzl": 114,
-	"./tzl.js": 114,
-	"./tzm": 115,
-	"./tzm-latn": 116,
-	"./tzm-latn.js": 116,
-	"./tzm.js": 115,
-	"./uk": 117,
-	"./uk.js": 117,
-	"./ur": 118,
-	"./ur.js": 118,
-	"./uz": 119,
-	"./uz-latn": 120,
-	"./uz-latn.js": 120,
-	"./uz.js": 119,
-	"./vi": 121,
-	"./vi.js": 121,
-	"./x-pseudo": 122,
-	"./x-pseudo.js": 122,
-	"./yo": 123,
-	"./yo.js": 123,
-	"./zh-cn": 124,
-	"./zh-cn.js": 124,
-	"./zh-hk": 125,
-	"./zh-hk.js": 125,
-	"./zh-tw": 126,
-	"./zh-tw.js": 126
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 167;
 
 /***/ }),
 /* 168 */
