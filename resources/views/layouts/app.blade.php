@@ -11,18 +11,25 @@
         body {
             padding-top: 50px;
         }
+
         [v-cloak] {
             display: none;
         }
+
         .vdp-datepicker .form-control {
-            background-color:white;
+            background-color: white;
         }
+
         .history-row {
-            position:absolute;
-            left:0;
-            padding-left: 10px;
-            padding-top: 10px;
+            position: absolute;
+            left: 0;
+            /*padding: 10px;*/
         }
+
+        .history-row .list-group {
+            margin: 9px 0 0 8px;
+        }
+
         table.table {
             position: relative;
         }

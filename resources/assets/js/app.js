@@ -23,14 +23,13 @@ import datePicker from 'vue-bootstrap-datetimepicker';
 import 'eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css';
 Vue.use(datePicker);
 
-
-
 var projects = [];
 
 const app = new Vue({
     el: '#app',
     data: {
         projectType: 'active',
+        projectOrder: 'date',
         showForm: false,
         projects: projects
     },

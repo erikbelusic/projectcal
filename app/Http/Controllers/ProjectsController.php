@@ -47,12 +47,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $project = Auth::user()->projects()->create([
-            'name' => $request->input('name'),
-            'status' => $request->input('status'),
-            'start_date' => !is_null($request->input('start_date')) ? Carbon::parse($request->input('start_date'))->toDateString() : null,
-            'end_date' => !is_null($request->input('end_date')) ? Carbon::parse($request->input('end_date'))->toDateString() : null,
-        ]);
+        $project = Auth::user()->projects()->create($this->getProjectParametersFromRequest($request));
 
         return (new ProjectTransformer)->transform($project);
     }
@@ -92,15 +87,8 @@ class ProjectsController extends Controller
         if ($project->user != Auth::user()) {
             return abort(403);
         }
-logger($request->all());
-        $project->update([
-            'name' => $request->input('name'),
-            'status' => $request->input('status'),
-            'start_date' => !is_null($request->input('start_date')) ? Carbon::parse($request->input('start_date'))->toDateString() : null,
-            'end_date' => !is_null($request->input('end_date')) ?Carbon::parse($request->input('end_date'))->toDateString() : null,
-            'next_action' => $request->input('next_action'),
-            'responsible_party' => $request->input('responsible_party'),
-        ]);
+
+        $project->update($this->getProjectParametersFromRequest($request));
 
         return (new ProjectTransformer)->transform($project);
     }
@@ -114,5 +102,17 @@ logger($request->all());
     public function destroy($id)
     {
         //
+    }
+
+    private function getProjectParametersFromRequest(Request $request)
+    {
+        return [
+            'name' => $request->input('name'),
+            'status' => $request->input('status'),
+            'start_date' => !is_null($request->input('start_date')) ? Carbon::parse($request->input('start_date'))->toDateString() : null,
+            'end_date' => !is_null($request->input('end_date')) ?Carbon::parse($request->input('end_date'))->toDateString() : null,
+            'next_action' => $request->input('next_action'),
+            'responsible_party' => $request->input('responsible_party'),
+        ];
     }
 }

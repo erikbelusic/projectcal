@@ -26752,6 +26752,7 @@ var app = new Vue({
     el: '#app',
     data: {
         projectType: 'active',
+        projectOrder: 'date',
         showForm: false,
         projects: projects
     },
@@ -26845,6 +26846,8 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+window.moment = __webpack_require__(0);
 
 /***/ }),
 /* 130 */
@@ -57553,6 +57556,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['project'],
@@ -57572,7 +57587,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
         historyHeight: function historyHeight() {
-            return this.project.history.length * 42 + 'px';
+            return this.project.history.length * 41 + 11 + 'px';
         }
     },
     watch: {
@@ -57630,11 +57645,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "project.status"
     }
-  })], 1), _vm._v(" "), _c('td', [_c('date-picker', {
+  })], 1), _vm._v(" "), _c('td', [_c('div', {
+    staticClass: "input-group"
+  }, [_c('date-picker', {
     attrs: {
       "config": {
-        format: 'MM/DD/YYYY',
-        showClear: true
+        format: 'MM/DD/YYYY'
       }
     },
     model: {
@@ -57644,11 +57660,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "project.start_date"
     }
-  })], 1), _vm._v(" "), _c('td', [_c('date-picker', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "input-group-btn"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.project.start_date = null
+      }
+    }
+  }, [_c('i', {
+    staticClass: "glyphicon glyphicon-remove"
+  })])])], 1)]), _vm._v(" "), _c('td', [_c('div', {
+    staticClass: "input-group"
+  }, [_c('date-picker', {
     attrs: {
       "config": {
-        format: 'MM/DD/YYYY',
-        showClear: true
+        format: 'MM/DD/YYYY'
       }
     },
     model: {
@@ -57658,7 +57687,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "project.end_date"
     }
-  })], 1), _vm._v(" "), _c('th', [_c('input', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "input-group-btn"
+  }, [_c('button', {
+    staticClass: "btn btn-default",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.project.end_date = null
+      }
+    }
+  }, [_c('i', {
+    staticClass: "glyphicon glyphicon-remove"
+  })])])], 1)]), _vm._v(" "), _c('th', [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -57695,7 +57736,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   })]), _vm._v(" "), _c('td', [_c('a', {
-    staticClass: "btn btn-info",
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.project.history.length),
+      expression: "project.history.length"
+    }],
+    staticClass: "btn btn-default",
     on: {
       "click": function($event) {
         $event.preventDefault();
@@ -57915,9 +57962,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
+var _ = window._;
+var moment = window.moment;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['projects'],
+    props: ['projects', 'order'],
+    computed: {
+        orderedProjects: function orderedProjects() {
+            switch (this.order) {
+                case 'name':
+                    return _.orderBy(this.projects, [function (project) {
+                        return project.name.toLowerCase();
+                    }]);
+                    break;
+                case 'date':
+                    return _.orderBy(this.projects, [function (project) {
+                        return moment(project.end_date, 'MM/DD/YYYY');
+                    }]);
+                    break;
+                case 'status':
+                    return _.orderBy(this.projects, 'status');
+                    break;
+            }
+        }
+    },
     methods: {
         updateParent: function updateParent() {
             this.$emit('update');
@@ -57936,7 +58007,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-xs-12"
   }, [_c('table', {
     staticClass: "table"
-  }, [_vm._m(0), _vm._v(" "), _c('tbody', [(_vm.projects.length == 0) ? _c('tr', [_c('td', [_vm._v("No Projects")])]) : _vm._l((_vm.projects), function(project) {
+  }, [_vm._m(0), _vm._v(" "), _c('tbody', [(_vm.projects.length == 0) ? _c('tr', [_c('td', [_vm._v("No Projects")])]) : _vm._l((_vm.orderedProjects), function(project) {
     return _c('project', {
       key: project.id,
       attrs: {
@@ -57948,7 +58019,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   })], 2)])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Status")]), _vm._v(" "), _c('th', [_vm._v("Start Date")]), _vm._v(" "), _c('th', [_vm._v("End Date")]), _vm._v(" "), _c('th', [_vm._v("Responsible")]), _vm._v(" "), _c('th', [_vm._v("Next Action")])])])
+  return _c('thead', [_c('tr', [_c('th', [_vm._v("Name")]), _vm._v(" "), _c('th', [_vm._v("Status")]), _vm._v(" "), _c('th', [_vm._v("Start Date")]), _vm._v(" "), _c('th', [_vm._v("End Date")]), _vm._v(" "), _c('th', [_vm._v("Responsible")]), _vm._v(" "), _c('th', [_vm._v("Next Action")]), _vm._v(" "), _c('th')])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

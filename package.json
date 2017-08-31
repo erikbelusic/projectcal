@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "moment": "^2.18.1",
     "vue-bootstrap-datetimepicker": "^3.0.0"
   }
 }

@@ -2,17 +2,29 @@
 
     <tr :class="statuses[project.status]">
         <th><input @blur="updateProject" class="form-control" v-model="project.name"></th>
-        <td><project-status-dropdown @change="updateProject" v-model="project.status"></project-status-dropdown></td>
         <td>
-            <date-picker v-model="project.start_date" :config="{format: 'MM/DD/YYYY', showClear: true}"></date-picker>
+            <project-status-dropdown @change="updateProject" v-model="project.status"></project-status-dropdown>
         </td>
         <td>
-            <date-picker v-model="project.end_date" :config="{format: 'MM/DD/YYYY', showClear: true}"></date-picker>
+            <div class="input-group">
+                <date-picker v-model="project.start_date" :config="{format: 'MM/DD/YYYY'}"></date-picker>
+                <div class="input-group-btn">
+                    <button @click.prevent="project.start_date = null" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="input-group">
+                <date-picker v-model="project.end_date" :config="{format: 'MM/DD/YYYY'}"></date-picker>
+                <div class="input-group-btn">
+                    <button @click.prevent="project.end_date = null" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
+                </div>
+            </div>
         </td>
         <th><input @blur="updateProject" class="form-control" v-model="project.responsible_party"></th>
         <th><input @blur="updateProject" class="form-control" v-model="project.next_action"></th>
         <td>
-            <a class="btn btn-info" @click.prevent="showHistory = !showHistory">{{ (showHistory) ? "Hide History" : "Show History" }}</a>
+            <a v-show="project.history.length" class="btn btn-default" @click.prevent="showHistory = !showHistory">{{ (showHistory) ? "Hide History" : "Show History" }}</a>
             <div v-if="showHistory" :style="{height: historyHeight}">
                 <div class="history-row">
                     <ul class="list-group">
@@ -43,7 +55,7 @@
         },
         computed: {
             historyHeight: function() {
-                return (this.project.history.length * 42) + 'px';
+                return (this.project.history.length * 41 + 11) + 'px';
             }
         },
         watch: {
