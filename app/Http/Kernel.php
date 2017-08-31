@@ -57,5 +57,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'ensure-calendar-is-set' => \App\Http\Middleware\RedirectIfCalendarIsNotSet::class,
     ];
 }

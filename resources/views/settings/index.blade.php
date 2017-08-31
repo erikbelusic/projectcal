@@ -19,6 +19,16 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label>Sync with Google:</label><br>
+                            <label for="sync_with_google_true">
+                                <input type="radio" name="sync_with_google" value="1" id="sync_with_google_true" {{ (Auth::user()->sync_with_google ? 'checked="checked"' : '') }}> Yes
+                            </label>
+                            &nbsp;
+                            <label for="sync_with_google_false">
+                                <input type="radio" name="sync_with_google" value="0" id="sync_with_google_false" {{ (!Auth::user()->sync_with_google ? 'checked="checked"' : '') }}> No
+                            </label>
+                        </div>
+                        <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Save">
                         </div>
                     </form>

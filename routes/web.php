@@ -17,9 +17,10 @@ Route::get('login/google/callback', 'Auth\GoogleLoginController@handleProviderCa
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('projects', 'ProjectsController');
     Route::get('/settings', 'SettingsController@index');
     Route::post('/settings', 'SettingsController@store');
+
+    Route::resource('projects', 'ProjectsController');
 
     Route::get('/test', function () {
         $event = new Google_Service_Calendar_Event(array(
@@ -57,5 +58,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', function () {
         return view('dashboard');
-    });
+    })->middleware('ensure-calendar-is-set');
 });

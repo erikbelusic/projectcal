@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('refresh_token');
 
             $table->string('calendar_id')->nullable();
+            $table->boolean('sync_with_google')->default(false);
 
             $table->rememberToken();
             $table->timestamps();
