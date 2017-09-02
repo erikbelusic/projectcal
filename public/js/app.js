@@ -58012,7 +58012,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.project.history), function(item) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v(_vm._s(item.key) + " was changed from " + _vm._s(item.old_value) + " to " + _vm._s(item.new_value))])
+    }, [_vm._v(_vm._s(item.field_name) + " was changed from " + _vm._s(item.old_value) + " to " + _vm._s(item.new_value) + " at " + _vm._s(item.created_at))])
   }))])]) : _vm._e()])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true

@@ -28,7 +28,7 @@
             <div v-if="showHistory" :style="{height: historyHeight}">
                 <div class="history-row">
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="item in project.history">{{ item.key }} was changed from {{ item.old_value }} to {{ item.new_value }}</li>
+                        <li class="list-group-item" v-for="item in project.history">{{ item.field_name }} was changed from {{ item.old_value }} to {{ item.new_value }} at {{ item.created_at }}</li>
                     </ul>
                 </div>
             </div>

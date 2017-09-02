@@ -21,6 +21,15 @@ class Project extends Model
         'end_date',
     ];
 
+    protected $revisionFormattedFieldNames = array(
+        'name' => 'Name',
+        'status' => 'Status',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
+        'next_action' => 'Next Action',
+        'responsible_party' => 'Responsible Party'
+    );
+
     public function user()
     {
         return $this->belongsTo(User::class);
