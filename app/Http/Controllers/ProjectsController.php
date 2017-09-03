@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UpdateProjectOnGoogle;
 use App\Project;
 use App\Transformers\ProjectTransformer;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProjectsController extends Controller
 {
@@ -49,6 +51,8 @@ class ProjectsController extends Controller
     {
         $project = Auth::user()->projects()->create($this->getProjectParametersFromRequest($request));
 
+        UpdateProjectOnGoogle::dispatch($project);
+
         return (new ProjectTransformer)->transform($project);
     }
 
@@ -89,6 +93,9 @@ class ProjectsController extends Controller
         }
 
         $project->update($this->getProjectParametersFromRequest($request));
+
+//        UpdateProjectOnGoogle::dispatch($project);
+        Log::info('ProjectsController@update was called');
 
         return (new ProjectTransformer)->transform($project);
     }

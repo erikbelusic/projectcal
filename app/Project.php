@@ -9,7 +9,7 @@ class Project extends Model
 {
     use RevisionableTrait;
 
-    protected $fillable = ['name', 'status', 'start_date', 'end_date', 'next_action', 'responsible_party'];
+    protected $fillable = ['name', 'status', 'start_date', 'end_date', 'next_action', 'responsible_party', 'calendar_event_id'];
 
     /**
      * The attributes that should be mutated to dates.
@@ -20,6 +20,10 @@ class Project extends Model
         'start_date',
         'end_date',
     ];
+
+    protected $dontKeepRevisionOf = array(
+        'calendar_event_id'
+    );
 
     protected $revisionFormattedFieldNames = array(
         'name' => 'Name',
@@ -43,5 +47,10 @@ class Project extends Model
     public function scopeArchived($query)
     {
         return $query->whereIn('status', ['Completed', 'Abandoned']);
+    }
+
+    public function existsOnGoogle()
+    {
+        return (bool) $this->calendar_event_id;
     }
 }
