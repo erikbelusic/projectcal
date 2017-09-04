@@ -57821,6 +57821,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+var _ = window._;
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['project'],
     data: function data() {
@@ -57852,11 +57853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         updateProject: function updateProject() {
-            var _this = this;
-
-            window.axios.put('/projects/' + this.project.id, this.project).then(function () {
-                _this.$emit('update');
-            });
+            window.axios.put('/projects/' + this.project.id, this.project);
         }
     }
 });
@@ -57902,7 +57899,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('date-picker', {
     attrs: {
       "config": {
-        format: 'MM/DD/YYYY'
+        format: 'MM/DD/YYYY',
+        useCurrent: false
       }
     },
     model: {
@@ -57929,7 +57927,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('date-picker', {
     attrs: {
       "config": {
-        format: 'MM/DD/YYYY'
+        format: 'MM/DD/YYYY',
+        useCurrent: false
       }
     },
     model: {
@@ -58215,7 +58214,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 var _ = window._;
 var moment = window.moment;
@@ -58250,11 +58248,6 @@ var moment = window.moment;
                     break;
             }
         }
-    },
-    methods: {
-        updateParent: function updateParent() {
-            this.$emit('update');
-        }
     }
 });
 
@@ -58274,9 +58267,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       key: project.id,
       attrs: {
         "project": project
-      },
-      on: {
-        "update": _vm.updateParent
       }
     })
   })], 2)])])])

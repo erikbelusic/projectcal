@@ -94,8 +94,7 @@ class ProjectsController extends Controller
 
         $project->update($this->getProjectParametersFromRequest($request));
 
-//        UpdateProjectOnGoogle::dispatch($project);
-        Log::info('ProjectsController@update was called');
+        UpdateProjectOnGoogle::dispatch($project);
 
         return (new ProjectTransformer)->transform($project);
     }

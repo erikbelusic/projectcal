@@ -7,7 +7,7 @@
         </td>
         <td>
             <div class="input-group">
-                <date-picker v-model="project.start_date" :config="{format: 'MM/DD/YYYY'}"></date-picker>
+                <date-picker v-model="project.start_date" :config="{format: 'MM/DD/YYYY', useCurrent: false}"></date-picker>
                 <div class="input-group-btn">
                     <button @click.prevent="project.start_date = null" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
                 </div>
@@ -15,7 +15,7 @@
         </td>
         <td>
             <div class="input-group">
-                <date-picker v-model="project.end_date" :config="{format: 'MM/DD/YYYY'}"></date-picker>
+                <date-picker v-model="project.end_date" :config="{format: 'MM/DD/YYYY', useCurrent: false}"></date-picker>
                 <div class="input-group-btn">
                     <button @click.prevent="project.end_date = null" class="btn btn-default"><i class="glyphicon glyphicon-remove"></i></button>
                 </div>
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+    const _ = window._;
     export default {
         props: ['project'],
         data() {
@@ -68,9 +69,7 @@
         },
         methods: {
             updateProject() {
-                window.axios.put('/projects/' + this.project.id, this.project).then(() => {
-                    this.$emit('update');
-                });
+                window.axios.put('/projects/' + this.project.id, this.project)
             }
         }
     }

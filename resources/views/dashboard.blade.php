@@ -13,6 +13,6 @@
         </div>
         <h1>Dash</h1>
         <new-project-form v-show="showForm" v-on:new-project="handleNewProject" v-on:cancel-new-project="cancelNewProject"></new-project-form>
-        <project-list :projects="projects" :order="projectOrder" v-on:update="getProjects"></project-list>
+        <project-list :projects="projects" :order="projectOrder"></project-list>
     </div>
 @endsection

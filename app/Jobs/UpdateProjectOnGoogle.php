@@ -75,11 +75,11 @@ class UpdateProjectOnGoogle implements ShouldQueue
                 'summary' => '[Project] - ' . $project->name,
                 'start' => array(
                     'date' => $start->toDateString(),
-                    'timeZone' => 'America/New_York',
+//                    'timeZone' => 'America/New_York',
                 ),
                 'end' => array(
                     'date' => $end->toDateString(),
-                    'timeZone' => 'America/New_York',
+//                    'timeZone' => 'America/New_York',
                 ),
                 'colorId' => '6'
         ];

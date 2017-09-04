@@ -17,8 +17,7 @@
                 <tr v-if="projects.length == 0">
                     <td>No Projects</td>
                 </tr>
-                <project v-else v-for="project in orderedProjects" :project="project" :key="project.id"
-                         v-on:update="updateParent"></project>
+                <project v-else v-for="project in orderedProjects" :project="project" :key="project.id"></project>
                 </tbody>
             </table>
         </div>
@@ -52,11 +51,6 @@
                         return _.orderBy(this.projects, [project => statusOrder[project.status]]);
                         break;
                 }
-            }
-        },
-        methods: {
-            updateParent() {
-                this.$emit('update');
             }
         }
     }
