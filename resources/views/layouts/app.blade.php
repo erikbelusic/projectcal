@@ -9,7 +9,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <style>
         body {
-            padding-top: 50px;
+            padding-top: 80px;
         }
 
         [v-cloak] {
@@ -39,6 +39,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-brand">Workstreams</div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ route('logout') }}">Logout</a></li>
+        </ul>
+
     </div>
 </nav>
 <div class="container-fluid">

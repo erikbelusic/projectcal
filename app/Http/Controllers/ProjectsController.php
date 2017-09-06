@@ -8,7 +8,6 @@ use App\Transformers\ProjectTransformer;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class ProjectsController extends Controller
 {

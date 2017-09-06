@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Socialite;
 use App\Http\Controllers\Controller;
 

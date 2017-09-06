@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-
 use App\Project;
 use App\User;
 use Google_Client;
 use Google_Service_Calendar;
+use Google_Service_Calendar_Calendar;
 use Google_Service_Calendar_Event;
 use Google_Service_Calendar_EventDateTime;
 
@@ -49,6 +49,12 @@ class GoogleCalendarService
     public function calendars()
     {
         return $this->service->calendarList->listCalendarList()->getItems();
+    }
+
+    public function newCalendar(Google_Service_Calendar_Calendar $calendar)
+    {
+        return $this->service->calendars->insert($calendar);
+
     }
 
     public function newEvent(Google_Service_Calendar_Event $event) {
