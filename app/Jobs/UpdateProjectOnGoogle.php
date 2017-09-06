@@ -71,6 +71,10 @@ class UpdateProjectOnGoogle implements ShouldQueue
         $start = !is_null($project->start_date) ? $project->start_date : $project->end_date;
         $end = !is_null($project->end_date) ? $project->end_date : $project->start_date;
 
+        if ($start != $end) {
+            $end->addDay();
+        }
+
         return [
                 'summary' => '[Project] - ' . $project->name,
                 'start' => array(
