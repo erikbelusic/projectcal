@@ -29,5 +29,8 @@
                     Login in with Google
                 </a></div>
         </div>
+            <p class="small">Requires Calendar Access<br/>
+                --------------------------------<br/>
+                Enter at your own risk.......</p>
     </div>
 @endsection

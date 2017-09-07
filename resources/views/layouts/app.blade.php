@@ -36,15 +36,16 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-brand">Workstreams</div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{ route('logout') }}">Logout</a></li>
-        </ul>
-
-    </div>
-</nav>
+@auth
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-brand">Workstreams</div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ route('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+@endauth
 <div class="container-fluid">
     @yield('content')
     <script src="{{ mix('/js/app.js') }}"></script>
